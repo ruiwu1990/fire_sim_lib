@@ -56,18 +56,18 @@ endif()
 
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "/usr/bin/cmake") # path
-set(source_file "/cse/home/andyg/Desktop/simulator/include/MT.cu") # path
-set(NVCC_generated_dependency_file "/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_MT.cu.o.NVCC-depend") # path
-set(cmake_dependency_file "/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_MT.cu.o.depend") # path
+set(source_file "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/include/MT.cu") # path
+set(NVCC_generated_dependency_file "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_MT.cu.o.NVCC-depend") # path
+set(cmake_dependency_file "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_MT.cu.o.depend") # path
 set(CUDA_make2cmake "/usr/share/cmake-2.8/Modules/FindCUDA/make2cmake.cmake") # path
 set(CUDA_parse_cubin "/usr/share/cmake-2.8/Modules/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool
 set(CUDA_HOST_COMPILER "/usr/bin/cc") # bool
 # We won't actually use these variables for now, but we need to set this, in
 # order to force this file to be run again if it changes.
-set(generated_file_path "/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/.") # path
-set(generated_file_internal "/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o") # path
-set(generated_cubin_file_internal "/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o.cubin.txt") # path
+set(generated_file_path "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/build/CMakeFiles/simulator.dir/include/.") # path
+set(generated_file_internal "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o") # path
+set(generated_cubin_file_internal "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o.cubin.txt") # path
 
 set(CUDA_NVCC_EXECUTABLE "/usr/local/cuda/bin/nvcc") # path
 set(CUDA_NVCC_FLAGS -std=c++11 ;; ) # list
@@ -77,7 +77,7 @@ set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )
 set(CUDA_NVCC_FLAGS_RELEASE  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
 set(nvcc_flags -m64) # list
-set(CUDA_NVCC_INCLUDE_ARGS "-I/usr/local/cuda/include;-I/cse/home/andyg/Desktop/simulator/include;-I/usr/local/cuda/include;-I/usr/include/gdal") # list (needs to be in quotes to handle spaces properly).
+set(CUDA_NVCC_INCLUDE_ARGS "-I/usr/local/cuda/include;-I/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/include;-I/usr/local/cuda/include;-I/usr/include/gdal") # list (needs to be in quotes to handle spaces properly).
 set(format_flag "-c") # string
 
 if(build_cubin AND NOT generated_cubin_file)
@@ -169,7 +169,7 @@ cuda_execute_process(
 # For CUDA 2.3 and below, -G -M doesn't work, so remove the -G flag
 # for dependency generation and hope for the best.
 set(depends_CUDA_NVCC_FLAGS "${CUDA_NVCC_FLAGS}")
-set(CUDA_VERSION 7.0)
+set(CUDA_VERSION 7.5)
 if(CUDA_VERSION VERSION_LESS "3.0")
   cmake_policy(PUSH)
   # CMake policy 0007 NEW states that empty list elements are not
