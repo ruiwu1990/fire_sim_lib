@@ -17,7 +17,7 @@ public:
    bool CopyToDevice();
    bool RunKernel(int,int,int, bool);
    bool CopyFromDevice();
-   bool WriteToFile(std::string);
+   bool WriteToFile(std::string, std::string* metaptr);
    bool UpdateCell(int,int,int);
 
 protected:

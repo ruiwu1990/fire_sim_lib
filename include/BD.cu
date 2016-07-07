@@ -116,12 +116,20 @@ bool BD::CopyFromDevice() {
    return true;
 }
 
-bool BD::WriteToFile(std::string filename) {
+bool BD::WriteToFile(std::string filename, std::string* metaptr) {
    std::ofstream fout;
 //   std::string filename;
 //   filename += simulation_->root_path_;
 //   filename += "out/BD_test.csv";
    fout.open(filename.c_str());
+
+   // add metadata to the first eight lines
+   for(int x = 0; x < 8; x++)
+   {
+      fout << metaptr[x];
+   }
+   fout << '\n';
+
    for(unsigned int i = 0; i < sim_size_; i++){
       if(i % simulation_->sim_dim_x_ == 0 && i !=0){
          fout << '\n';

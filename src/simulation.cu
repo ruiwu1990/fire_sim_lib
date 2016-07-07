@@ -1,6 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include "FireSim.h"
+#include <sstream>
+#include <string>
+#include <cstring>
 //#include <sys/time.h>
 //#include "kernel_MT.h"
 //#include "kernel_IMT.h"
@@ -10,9 +13,27 @@
 #include "SEQ.h"
 #include <sys/time.h>
 
+/*
+./simulator /cse/home/andyg/Desktop/simulator/data/fixed.fuel /cse/home/andyg/Desktop/simulator/data/fire_info.csv /cse/home/andyg/Desktop/simulator/out/final_tests.csv
+*/
+
 bool TIMING_LOOPS = 1;
 
 bool PARALLEL = 1;
+
+std::string double_to_string(double value)
+{
+  std::ostringstream ss;
+  ss << value;
+  return ss.str();
+}
+
+std::string int_to_string(int value)
+{
+  std::ostringstream ss;
+  ss << value;
+  return ss.str();
+}
 
 int main(int argc, char *argv[]){
 //   int step_size = 350;
@@ -22,7 +43,7 @@ int main(int argc, char *argv[]){
    int s = 512;
    std::ofstream fout;
    std::string filename;
-   filename += "/cse/home/andyg/Desktop/firesim/out/timeout.txt";
+   filename += "/cse/home/andyg/Desktop/simulator/out/timeout.txt";
    fout.open(filename.c_str());
    for(int i = 0; i < TIMING_LOOPS; i ++)
    {
@@ -30,13 +51,14 @@ int main(int argc, char *argv[]){
       {
          printf("---------- Running Parallel Simulation ----------\n");
          BD parallel_sim(906,642,
-                         "/cse/home/andyg/Desktop/firesim/data/default.fmd",
-                         "/cse/home/andyg/Desktop/firesim/data/kyle.fms");
-         parallel_sim.Init("/cse/home/andyg/Desktop/firesim/data/fixed.fuel", //--> argv[1]
-                           "/cse/home/andyg/Desktop/firesim/data/fixed2.tif",
-                           "/cse/home/andyg/Desktop/firesim/data/canopy_ht.asc",
-                           "/cse/home/andyg/Desktop/firesim/data/crown_base_ht.asc",
-                           "/cse/home/andyg/Desktop/firesim/data/crown_bulk_density.asc",
+                         "/cse/home/andyg/Desktop/simulator/data/default.fmd", // /cse/home/andyg/Desktop/ + argv[4] this does not work
+                                                                               // need to get path for files
+                         "/cse/home/andyg/Desktop/simulator/data/kyle.fms");
+         parallel_sim.Init(argv[1], //--> argv[1] --> "/cse/home/andyg/Desktop/simulator/data/fixed.fuel"
+                           "/cse/home/andyg/Desktop/simulator/data/fixed2.tif",
+                           "/cse/home/andyg/Desktop/simulator/data/canopy_ht.asc",
+                           "/cse/home/andyg/Desktop/simulator/data/crown_base_ht.asc",
+                           "/cse/home/andyg/Desktop/simulator/data/crown_bulk_density.asc",
                            0, 0);
 
          // check for rui file
@@ -48,8 +70,8 @@ int main(int argc, char *argv[]){
          // if there is a file parse it
 
          // Loop through and start fires
-        std::ifstream finn("/cse/home/andyg/Desktop/firesim/data/fire_info.csv");
-        std::ofstream foutt("/cse/home/andyg/Desktop/firesim/data/temp.txt");
+        std::ifstream finn(argv[2]); // "/cse/home/andyg/Desktop/simulator/data/fire_info.csv"
+        std::ofstream foutt("/cse/home/andyg/Desktop/simulator/data/temp.txt");
 
         if(!finn)
         {
@@ -60,38 +82,56 @@ int main(int argc, char *argv[]){
         char temp[255];
         double left_top_lat, left_top_long, right_bottom_lat, right_bottom_long;
         int numrows, numcols, lmaxval, notsetfire;
+        std::string* metaData = new std::string[8];
+        std::string spaceColon = ": ";
 
         finn.getline(temp, 255, ':');
         finn >> left_top_lat;
         std::cout << std::endl << temp << " " << left_top_lat << std::endl;
+        metaData[0] = temp + spaceColon + double_to_string(left_top_lat);
+        std::cout << metaData[0] << std::endl;
 
         finn.getline(temp, 255, ':');
         finn >> left_top_long;
         std::cout << temp << " " << left_top_long << std::endl;
+        metaData[1] = temp + spaceColon + double_to_string(left_top_long);
+        std::cout << metaData[1] << std::endl;
 
         finn.getline(temp, 255, ':');
         finn >> right_bottom_lat;
         std::cout << temp << " " << right_bottom_lat << std::endl;
+        metaData[2] = temp + spaceColon + double_to_string(right_bottom_lat);
+        std::cout << metaData[2] << std::endl;
 
         finn.getline(temp, 255, ':');
         finn >> right_bottom_long;
         std::cout << temp << " " << right_bottom_long << std::endl;
+        metaData[3] = temp + spaceColon + double_to_string(right_bottom_long);
+        std::cout << metaData[3] << std::endl;
 
         finn.getline(temp, 255, ':');
         finn >> numrows;
         std::cout << temp << " " << numrows << std::endl;
+        metaData[4] = temp + spaceColon + int_to_string(numrows);
+        std::cout << metaData[4] << std::endl;
 
         finn.getline(temp, 255, ':');
         finn >> numcols;
         std::cout << temp << " " << numcols << std::endl;
+        metaData[5] = temp + spaceColon + int_to_string(numcols);
+        std::cout << metaData[5] << std::endl;
 
         finn.getline(temp, 255, ':');
         finn >> lmaxval;
         std::cout << temp << " " << lmaxval << std::endl;
+        metaData[6] = temp + spaceColon + int_to_string(lmaxval);
+        std::cout << metaData[6] << std::endl;
 
         finn.getline(temp, 255, ':');
         finn >> notsetfire;
         std::cout << temp << " " << notsetfire << std::endl;
+        metaData[7] = temp + spaceColon + int_to_string(notsetfire);
+        std::cout << metaData[7] << std::endl;
 
         int count = 0, r = 0, c = 0;
         while(r < numrows)
@@ -115,10 +155,10 @@ int main(int argc, char *argv[]){
              parallel_sim.UpdateCell(r,c,0);
              count++;
             }
-          std::cout << "cols: " << c << std::endl;
+          //std::cout << "cols: " << c << std::endl;
           c = 0;
           r++;
-          std::cout << "rows: " << r << std::endl;
+          //std::cout << "rows: " << r << std::endl;
           foutt << value << std::endl;
         }
          std::cout << count << std::endl;
@@ -144,7 +184,8 @@ int main(int argc, char *argv[]){
          std::cout << "Processing Simulation took " << t_upSpread << " seconds" << std::endl;
 //       std::cout << "Iterations: " << count << std::endl;
 
-         parallel_sim.WriteToFile("/cse/home/andyg/Desktop/firesim/out/final_tests.csv"); // add meta data for rui --> argv[5] maybe?
+         parallel_sim.WriteToFile(argv[3], metaData); // "/cse/home/andyg/Desktop/simulator/out/final_tests.csv"
+         delete[] metaData;
       }
       else
       {
