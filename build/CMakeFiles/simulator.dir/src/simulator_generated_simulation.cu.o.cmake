@@ -69,7 +69,7 @@ set(generated_file_path "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/build/CM
 set(generated_file_internal "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/build/CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o") # path
 set(generated_cubin_file_internal "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/build/CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o.cubin.txt") # path
 
-set(CUDA_NVCC_EXECUTABLE "/usr/local/cuda/bin/nvcc") # path
+set(CUDA_NVCC_EXECUTABLE "/usr/local/cuda-7.5/bin/nvcc") # path
 set(CUDA_NVCC_FLAGS -std=c++11 ;; ) # list
 # Build specific configuration flags
 set(CUDA_NVCC_FLAGS_DEBUG  ; )
@@ -77,7 +77,7 @@ set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )
 set(CUDA_NVCC_FLAGS_RELEASE  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
 set(nvcc_flags -m64) # list
-set(CUDA_NVCC_INCLUDE_ARGS "-I/usr/local/cuda/include;-I/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/include;-I/usr/local/cuda/include;-I/usr/include/gdal") # list (needs to be in quotes to handle spaces properly).
+set(CUDA_NVCC_INCLUDE_ARGS "-I/usr/local/cuda-7.5/include;-I/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/include;-I/usr/local/cuda-7.5/include;-I/usr/include/gdal") # list (needs to be in quotes to handle spaces properly).
 set(format_flag "-c") # string
 
 if(build_cubin AND NOT generated_cubin_file)

@@ -59,7 +59,7 @@ int main(int argc, char *argv[]){
                            "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/data/canopy_ht.asc",
                            "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/data/crown_base_ht.asc",
                            "/cse/hpcvis/vrdemo/Desktop/fire_folder/firesim/data/crown_bulk_density.asc",
-                           0, 0);
+                           100, 100);
 
          // check for rui file
          //newData = "/cse/home/andyg/Desktop/simulator/data/" + argv[1];
