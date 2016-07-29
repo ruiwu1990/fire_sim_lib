@@ -54,7 +54,7 @@ Propagation::~Propagation(){
  */
 bool Propagation::Init(std::string fuel_file, std::string terrain_file,
                        std::string canopy_height_file, std::string crown_base_height_file,
-                       std::string crown_bulk_density_file, float wind_x, float wind_y){
+                       std::string crown_bulk_density_file, std::string wind_x, std::string wind_y){
    printf("Propagation Init\n");
    max_spread = 0;
    /*

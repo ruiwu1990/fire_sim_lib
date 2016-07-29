@@ -13,16 +13,20 @@ class BD : Propagation
 public:
    BD(int,int, std::string, std::string);
    ~BD();
-   bool Init(std::string,std::string,std::string,std::string,std::string,float,float);
+   bool Init(std::string,std::string,std::string,std::string,std::string,std::string,std::string);
    bool CopyToDevice();
    bool RunKernel(int,int,int, bool);
    bool CopyFromDevice();
    bool WriteToFile(std::string, std::string* metaptr);
+   bool WindXToFile(std::string, std::string* metaptr);
+   bool WindYToFile(std::string, std::string* metaptr);
    bool UpdateCell(int,int,int);
 
 protected:
    // Host Variables
    float* toa_map_;
+   float* wind_x_map_;
+   float* wind_y_map_;
    float* timesteppers_;
    float* loc_burndist_;
    float timestep_;
@@ -30,6 +34,10 @@ protected:
    // Device Variables
    float* g_toa_map_in_;
    float* g_toa_map_out_;
+   float* g_wind_x_map_in_;
+   float* g_wind_x_map_out_;
+   float* g_wind_y_map_in_;
+   float* g_wind_y_map_out_;
    float* g_timesteppers_;
    float* g_loc_burndist_;
 };

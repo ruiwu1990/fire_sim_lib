@@ -9,6 +9,8 @@ BD::BD(int _x, int _y, std::string fuel_model_name, std::string fuel_moisture_na
 //   printf("BD Constructor\n");
 //   sim_size_ = simulation_->sim_dim_x_ * simulation_->sim_dim_y_;
    toa_map_ = (float*) malloc(sim_size_ * sizeof(float));
+   wind_x_map_ = (float*) malloc(sim_size_ * sizeof(float));
+   wind_y_map_ = (float*) malloc(sim_size_ * sizeof(float));
    timesteppers_ = (float*) malloc(2*sizeof(float));
    loc_burndist_ = (float*) malloc(8*sim_size_*sizeof(float));
 }
@@ -16,16 +18,22 @@ BD::BD(int _x, int _y, std::string fuel_model_name, std::string fuel_moisture_na
 BD::~BD(){
    // Free host memory
    free(toa_map_);
+   free(wind_x_map_);
+   free(wind_y_map_);
    free(timesteppers_);
    // Free device memory
    cudaFree(g_toa_map_in_);
    cudaFree(g_toa_map_out_);
+   cudaFree(g_wind_x_map_in_);
+   cudaFree(g_wind_x_map_out_);
+   cudaFree(g_wind_y_map_in_);
+   cudaFree(g_wind_y_map_out_);
    cudaFree(g_timesteppers_);
 }
 
 bool BD::Init(std::string fuel_file, std::string terrain_file,
               std::string canopy_height_file, std::string crown_base_height_file,
-              std::string crown_bulk_density_file, float wind_x, float wind_y){
+              std::string crown_bulk_density_file, std::string wind_x, std::string wind_y){
    Propagation::Init(fuel_file, terrain_file,
                      canopy_height_file, crown_base_height_file,
                      crown_bulk_density_file, wind_x, wind_y);
@@ -58,6 +66,10 @@ bool BD::CopyToDevice(){
    // Create memory on device
    cudaError_t err = cudaMalloc( (void**) &g_toa_map_in_, sim_size_*sizeof(float));
    err = cudaMalloc( (void**) &g_toa_map_out_, sim_size_*sizeof(float));
+   err = cudaMalloc( (void**) &g_wind_x_map_in_, sim_size_*sizeof(float));
+   err = cudaMalloc( (void**) &g_wind_x_map_out_, sim_size_*sizeof(float));
+   err = cudaMalloc( (void**) &g_wind_y_map_in_, sim_size_*sizeof(float));
+   err = cudaMalloc( (void**) &g_wind_y_map_out_, sim_size_*sizeof(float));
    err = cudaMalloc( (void**) &g_timesteppers_, 2*sizeof(float));
    err = cudaMalloc( (void**) &g_loc_burndist_, sim_size_*8*sizeof(float));
    if (err != cudaSuccess) {
@@ -68,6 +80,10 @@ bool BD::CopyToDevice(){
 
    err = cudaMemcpy(g_toa_map_in_, toa_map_, sim_size_*sizeof(float), cudaMemcpyHostToDevice);
    err = cudaMemcpy(g_toa_map_out_, toa_map_, sim_size_*sizeof(float), cudaMemcpyHostToDevice);
+   err = cudaMemcpy(g_wind_x_map_in_, wind_x_map_, sim_size_*sizeof(float), cudaMemcpyHostToDevice);
+   err = cudaMemcpy(g_wind_x_map_out_, wind_x_map_, sim_size_*sizeof(float), cudaMemcpyHostToDevice);
+   err = cudaMemcpy(g_wind_y_map_in_, wind_y_map_, sim_size_*sizeof(float), cudaMemcpyHostToDevice);
+   err = cudaMemcpy(g_wind_y_map_out_, wind_y_map_, sim_size_*sizeof(float), cudaMemcpyHostToDevice);
    err = cudaMemcpy(g_timesteppers_, timesteppers_, 2*sizeof(float), cudaMemcpyHostToDevice);
    err = cudaMemcpy(g_loc_burndist_, loc_burndist_,sim_size_*8*sizeof(float), cudaMemcpyHostToDevice);
    if (err != cudaSuccess) {
@@ -104,7 +120,7 @@ bool BD::RunKernel(int sim_step, int B, int T, bool crowning_test) {
 
 
 bool BD::CopyFromDevice() {
-   printf("BD Copy From Device\n");
+   printf("BD Copy TOA From Device\n");
    cudaError_t err =  cudaMemcpy(toa_map_, g_toa_map_in_,
                                  sim_size_*sizeof(float),
                                  cudaMemcpyDeviceToHost);
@@ -113,6 +129,27 @@ bool BD::CopyFromDevice() {
       exit(1);
       return false;
    }
+
+   printf("BD Copy WINDX From Device\n");
+   err =  cudaMemcpy(wind_x_map_, g_wind_x_map_in_,
+                                 sim_size_*sizeof(float),
+                                 cudaMemcpyDeviceToHost);
+   if (err != cudaSuccess) {
+      std::cerr << "Error copying from GPU: " << cudaGetErrorString(err) << std::endl;
+      exit(1);
+      return false;
+   }
+
+   printf("BD Copy WINDY From Device\n");
+   err =  cudaMemcpy(wind_y_map_, g_wind_y_map_in_,
+                                 sim_size_*sizeof(float),
+                                 cudaMemcpyDeviceToHost);
+   if (err != cudaSuccess) {
+      std::cerr << "Error copying from GPU: " << cudaGetErrorString(err) << std::endl;
+      exit(1);
+      return false;
+   }
+
    return true;
 }
 
@@ -144,6 +181,63 @@ bool BD::WriteToFile(std::string filename, std::string* metaptr) {
    return true;
 }
 
+bool BD::WindXToFile(std::string filename, std::string* metaptr) {
+      std::ofstream fout;
+//   std::string filename;
+//   filename += simulation_->root_path_;
+//   filename += "out/BD_test.csv";
+   fout.open(filename.c_str());
+
+   // add metadata to the first eight lines
+   for(int x = 0; x < 8; x++)
+   {
+      fout << metaptr[x];
+   }
+   fout << '\n';
+
+   for(unsigned int i = 0; i < sim_size_; i++){
+      if(i % simulation_->sim_dim_x_ == 0 && i !=0){
+         fout << '\n';
+      }
+//      if(toa_map_[i] == INF){
+//         fout << 0 << " ";
+//      }
+//      else
+         fout << wind_x_map_[i] << " ";
+         //std::cout << i << std::endl;
+   }
+   fout.close();
+   return true;
+}
+
+bool BD::WindYToFile(std::string filename, std::string* metaptr) {
+      std::ofstream fout;
+//   std::string filename;
+//   filename += simulation_->root_path_;
+//   filename += "out/BD_test.csv";
+   fout.open(filename.c_str());
+
+   // add metadata to the first eight lines
+   for(int x = 0; x < 8; x++)
+   {
+      fout << metaptr[x];
+   }
+   fout << '\n';
+
+   for(unsigned int i = 0; i < sim_size_; i++){
+      if(i % simulation_->sim_dim_x_ == 0 && i !=0){
+         fout << '\n';
+      }
+//      if(toa_map_[i] == INF){
+//         fout << 0 << " ";
+//      }
+//      else
+         fout << wind_y_map_[i] << " ";
+         std::cout << wind_y_map_[i] << std::endl;
+   }
+   fout.close();
+   return true;
+}
 
 bool BD::UpdateCell(int _x, int _y, int val){
 //   if(_x < 0 || _y < 0 || _x > sim_rows_ || _y > sim_cols_)

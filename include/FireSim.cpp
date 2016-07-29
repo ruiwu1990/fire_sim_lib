@@ -47,6 +47,8 @@ FireSim::FireSim(int _x /*cols, width*/, int _y/*rows, height*/,
    foliar_moisture = 1.0f;
 
    toa_ = new float*[sim_dim_y_];
+   xwind_ = new int[sim_dim_y_];
+   ywind_ = new int[sim_dim_y_];
    roth_data_ = new vec4*[sim_dim_y_];
    current_ros_ = new float*[sim_dim_y_];
    original_toa_ = new float*[sim_dim_y_];
@@ -186,7 +188,7 @@ Purpose: Initializes the sim.
 */
 void FireSim::Init(std::string fuel_file, std::string terrain_file,
                    std::string canopy_height_file, std::string crown_base_height_file,
-                   std::string crown_bulk_density_file, float wind_x, float wind_y){
+                   std::string crown_bulk_density_file, std::string wind_x, std::string wind_y){
    // read from files:
    int cell = 0;
    float junk;
@@ -200,6 +202,12 @@ void FireSim::Init(std::string fuel_file, std::string terrain_file,
 
    fname_tmp = canopy_height_file.c_str();
    canopy_height_ = GISToFloatArray(fname_tmp, sim_dim_x_, sim_dim_y_, junk);
+
+   fname_tmp = wind_x.c_str();
+   xwind_ = GISToIntArray(fname_tmp, sim_dim_x_, sim_dim_y_, junk);
+
+   fname_tmp = wind_y.c_str();
+   ywind_ = GISToIntArray(fname_tmp, sim_dim_x_, sim_dim_y_, junk);
 
    // Crown base height data is only used for calculating I_o so it doesn't need to be stored separately
    fname_tmp = crown_base_height_file.c_str();
@@ -215,6 +223,7 @@ void FireSim::Init(std::string fuel_file, std::string terrain_file,
       RAC_[i] = 3.0f / RAC_[i];
    }
 
+   int windIndex = 0;
    for(int i = 0; i < sim_dim_y_; i++){
       for(int j = 0; j < sim_dim_x_; j++, cell++){
          toa_[i][j] = 20.f;
@@ -226,8 +235,10 @@ void FireSim::Init(std::string fuel_file, std::string terrain_file,
          source_data_texture_[i][j].x = source_data_texture_[i][j].y = 0.f;
 
          // Rothermel Data Members
-         wind_t_[i][j].x = wind_x;
-         wind_t_[i][j].y = wind_y;
+         //std::cout << xwind_[windIndex] << std::endl;
+         wind_t_[i][j].x = xwind_[windIndex];
+         wind_t_[i][j].y = ywind_[windIndex];
+         windIndex++;
 
          slope_aspect_elevation_t_[cell].x = slopeTexTmp[3*cell];
          slope_aspect_elevation_t_[cell].y = slopeTexTmp[3*cell+1];
@@ -240,7 +251,7 @@ void FireSim::Init(std::string fuel_file, std::string terrain_file,
          }
       }
    }
-
+   //std::cout << windIndex << std::endl;
    time_step_ = 2.0;
 
 

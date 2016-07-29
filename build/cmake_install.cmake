@@ -1,4 +1,4 @@
-# Install script for directory: /cse/home/andyg/Desktop/simulator
+# Install script for directory: /cse/home/andyg/Desktop/firesim
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -38,7 +38,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/cse/home/andyg/Desktop/simulator/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/cse/home/andyg/Desktop/firesim/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/cse/home/andyg/Desktop/simulator/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/cse/home/andyg/Desktop/firesim/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

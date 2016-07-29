@@ -14,7 +14,7 @@
 #include <sys/time.h>
 
 /*
-./simulator /cse/home/andyg/Desktop/simulator/data/fixed.fuel /cse/home/andyg/Desktop/simulator/data/fire_info.csv /cse/home/andyg/Desktop/simulator/out/final_tests.csv
+./simulator /cse/home/andyg/Desktop/firesim/data/fixed.fuel /cse/home/andyg/Desktop/firesim/data/fire_info.csv /cse/home/andyg/Desktop/firesim/out/final_tests.csv
 */
 
 bool TIMING_LOOPS = 1;
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]){
    int s = 512;
    std::ofstream fout;
    std::string filename;
-   filename += "/cse/home/andyg/Desktop/simulator/out/timeout.txt";
+   filename += "/cse/home/andyg/Desktop/firesim/out/timeout.txt";
    fout.open(filename.c_str());
    for(int i = 0; i < TIMING_LOOPS; i ++)
    {
@@ -51,18 +51,19 @@ int main(int argc, char *argv[]){
       {
          printf("---------- Running Parallel Simulation ----------\n");
          BD parallel_sim(906,642,
-                         "/cse/home/andyg/Desktop/simulator/data/default.fmd", // /cse/home/andyg/Desktop/ + argv[4] this does not work
+                         "/cse/home/andyg/Desktop/firesim/data/default.fmd", // /cse/home/andyg/Desktop/ + argv[4] this does not work
                                                                                // need to get path for files
-                         "/cse/home/andyg/Desktop/simulator/data/kyle.fms");
-         parallel_sim.Init(argv[1], //--> argv[1] --> "/cse/home/andyg/Desktop/simulator/data/fixed.fuel"
-                           "/cse/home/andyg/Desktop/simulator/data/fixed2.tif",
-                           "/cse/home/andyg/Desktop/simulator/data/canopy_ht.asc",
-                           "/cse/home/andyg/Desktop/simulator/data/crown_base_ht.asc",
-                           "/cse/home/andyg/Desktop/simulator/data/crown_bulk_density.asc",
-                           0, 0);
+                         "/cse/home/andyg/Desktop/firesim/data/kyle.fms");
+         parallel_sim.Init(argv[1], //--> argv[1] --> "/cse/home/andyg/Desktop/firesim/data/fixed.fuel"
+                           "/cse/home/andyg/Desktop/firesim/data/fixed2.tif",
+                           "/cse/home/andyg/Desktop/firesim/data/canopy_ht.asc",
+                           "/cse/home/andyg/Desktop/firesim/data/crown_base_ht.asc",
+                           "/cse/home/andyg/Desktop/firesim/data/crown_bulk_density.asc",
+                           "/cse/home/andyg/Desktop/firesim/data/windx.fuel", 
+                           "/cse/home/andyg/Desktop/firesim/data/windy.fuel");
 
          // check for rui file
-         //newData = "/cse/home/andyg/Desktop/simulator/data/" + argv[1];
+         //newData = "/cse/home/andyg/Desktop/firesim/data/" + argv[1];
          // path = argv[2]; // file path 'pwd'
          // newData = argv[2] + "/simulator/data/" + argv[3]; // argv[2] is file name .asc, .csv ...
          // newData = "/cse/home/andyg/Desktop/" + "simulator/data/" + fire_info.csv
@@ -70,8 +71,8 @@ int main(int argc, char *argv[]){
          // if there is a file parse it
 
          // Loop through and start fires
-        std::ifstream finn(argv[2]); // "/cse/home/andyg/Desktop/simulator/data/fire_info.csv"
-        std::ofstream foutt("/cse/home/andyg/Desktop/simulator/data/temp.txt");
+        std::ifstream finn(argv[2]); // "/cse/home/andyg/Desktop/firesim/data/fire_info.csv"
+        std::ofstream foutt("/cse/home/andyg/Desktop/firesim/data/temp.txt");
 
         if(!finn)
         {
@@ -155,10 +156,10 @@ int main(int argc, char *argv[]){
              parallel_sim.UpdateCell(r,c,0);
              count++;
             }
-          //std::cout << "cols: " << c << std::endl;
+          std::cout << "cols: " << c << std::endl;
           c = 0;
           r++;
-          //std::cout << "rows: " << r << std::endl;
+          std::cout << "rows: " << r << std::endl;
           foutt << value << std::endl;
         }
          std::cout << count << std::endl;
@@ -184,7 +185,10 @@ int main(int argc, char *argv[]){
          std::cout << "Processing Simulation took " << t_upSpread << " seconds" << std::endl;
 //       std::cout << "Iterations: " << count << std::endl;
 
-         parallel_sim.WriteToFile(argv[3], metaData); // "/cse/home/andyg/Desktop/simulator/out/final_tests.csv"
+         parallel_sim.WriteToFile(argv[3], metaData); // "/cse/home/andyg/Desktop/firesim/out/final_tests.csv"
+         parallel_sim.WindXToFile("/cse/home/andyg/Desktop/firesim/out/windX.fuel", metaData);
+         parallel_sim.WindYToFile("/cse/home/andyg/Desktop/firesim/out/windY.fuel", metaData);
+         
          delete[] metaData;
       }
       else
@@ -232,17 +236,17 @@ int main(int argc, char *argv[]){
    {
       printf("---------- Running Parallel Simulation ----------\n");
       BD parallel_sim(906,642,
-                      "/cse/home/andyg/Desktop/simulator/data/default.fmd",
-                      "/cse/home/andyg/Desktop/simulator/data/kyle.fms");
-      parallel_sim.Init("/cse/home/andyg/Desktop/simulator/data/fixed.fuel",
-                        "/cse/home/andyg/Desktop/simulator/data/fixed2.tif",
-                        "/cse/home/andyg/Desktop/simulator/data/canopy_ht.asc",
-                        "/cse/home/andyg/Desktop/simulator/data/crown_base_ht.asc",
-                        "/cse/home/andyg/Desktop/simulator/data/crown_bulk_density.asc",
+                      "/cse/home/andyg/Desktop/firesim/data/default.fmd",
+                      "/cse/home/andyg/Desktop/firesim/data/kyle.fms");
+      parallel_sim.Init("/cse/home/andyg/Desktop/firesim/data/fixed.fuel",
+                        "/cse/home/andyg/Desktop/firesim/data/fixed2.tif",
+                        "/cse/home/andyg/Desktop/firesim/data/canopy_ht.asc",
+                        "/cse/home/andyg/Desktop/firesim/data/crown_base_ht.asc",
+                        "/cse/home/andyg/Desktop/firesim/data/crown_bulk_density.asc",
                         0, 0);
 
       // check for rui file
-      newData = "/cse/home/andyg/Desktop/simulator/data/" + newData;
+      newData = "/cse/home/andyg/Desktop/firesim/data/" + newData;
 
       // if there is a file parse it
 
@@ -305,13 +309,13 @@ int main(int argc, char *argv[]){
       {
          printf("---------- Running Parallel Simulation ----------\n");
          BD parallel_sim(906,642,
-                         "/cse/home/andyg/Desktop/simulator/data/default.fmd",
-                         "/cse/home/andyg/Desktop/simulator/data/kyle.fms");
-         parallel_sim.Init("/cse/home/andyg/Desktop/simulator/data/fixed.fuel",
-                           "/cse/home/andyg/Desktop/simulator/data/fixed2.tif",
-                           "/cse/home/andyg/Desktop/simulator/data/canopy_ht.asc",
-                           "/cse/home/andyg/Desktop/simulator/data/crown_base_ht.asc",
-                           "/cse/home/andyg/Desktop/simulator/data/crown_bulk_density.asc",
+                         "/cse/home/andyg/Desktop/firesim/data/default.fmd",
+                         "/cse/home/andyg/Desktop/firesim/data/kyle.fms");
+         parallel_sim.Init("/cse/home/andyg/Desktop/firesim/data/fixed.fuel",
+                           "/cse/home/andyg/Desktop/firesim/data/fixed2.tif",
+                           "/cse/home/andyg/Desktop/firesim/data/canopy_ht.asc",
+                           "/cse/home/andyg/Desktop/firesim/data/crown_base_ht.asc",
+                           "/cse/home/andyg/Desktop/firesim/data/crown_bulk_density.asc",
                            0, 0);
 
          // check for rui file

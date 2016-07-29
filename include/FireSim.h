@@ -22,7 +22,7 @@ class FireSim {
 public:
    FireSim(int _x,int _y, std::string, std::string);
    ~FireSim();
-   void     Init(std::string,std::string,std::string,std::string,std::string,float,float);
+   void     Init(std::string,std::string,std::string,std::string,std::string,std::string,std::string);
    void     UpdateSpreadData();
    float    Clamp(float, float, float);
    bool     BurnDistance(float &, float, float);
@@ -33,6 +33,8 @@ public:
    vec4**   roth_data_; // x - maxSpreadRate, y - spreadDirection, z - ellipseEccentricity, w - IntensityModifier
    float**  current_ros_;
    float**  toa_;
+   int*   xwind_;
+   int*   ywind_;
    float**  original_toa_;
    int**    update_stamp_;
    point**  source_data_texture_;

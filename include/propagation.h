@@ -12,7 +12,7 @@ class Propagation{
 public:
     Propagation(int,int, std::string, std::string);
     ~Propagation();
-    virtual bool Init(std::string,std::string,std::string,std::string,std::string,float,float);
+    virtual bool Init(std::string,std::string,std::string,std::string,std::string,std::string,std::string);
     virtual bool CopyToDevice();
 //      virtual bool Accelerate();
 //      virtual bool RunKernel();

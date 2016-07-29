@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cse/home/andyg/Desktop/simulator
+CMAKE_SOURCE_DIR = /cse/home/andyg/Desktop/firesim
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cse/home/andyg/Desktop/simulator/build
+CMAKE_BINARY_DIR = /cse/home/andyg/Desktop/firesim/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/simulator.dir/depend.make
@@ -308,10 +308,10 @@ CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o: /usr/local/c
 CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o: /usr/local/cuda/include/vector_types.h
 CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o: CMakeFiles/simulator.dir/src/simulator_generated_simulation.cu.o.cmake
 CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o: ../src/simulation.cu
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building NVCC (Device) object CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o"
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/src && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/src/.
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/src && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o.cubin.txt -P /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/src/simulator_generated_simulation.cu.o.cmake
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/src && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/src/.
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/src && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o.cubin.txt -P /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/src/simulator_generated_simulation.cu.o.cmake
 
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o: ../include/kernel_BD.cu
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o: ../include/kernel_BD.h
@@ -438,10 +438,10 @@ CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o: /usr/loca
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o: /usr/local/cuda/include/vector_types.h
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o: CMakeFiles/simulator.dir/include/simulator_generated_kernel_BD.cu.o.cmake
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o: ../include/kernel_BD.cu
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building NVCC (Device) object CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o"
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/.
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o.cubin.txt -P /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_kernel_BD.cu.o.cmake
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/.
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o.cubin.txt -P /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_kernel_BD.cu.o.cmake
 
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o: ../include/kernel_IMT.cu
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o: ../include/kernel_IMT.h
@@ -563,10 +563,10 @@ CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o: /usr/loc
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o: /usr/local/cuda/include/vector_types.h
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o: CMakeFiles/simulator.dir/include/simulator_generated_kernel_IMT.cu.o.cmake
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o: ../include/kernel_IMT.cu
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building NVCC (Device) object CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o"
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/.
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o.cubin.txt -P /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_kernel_IMT.cu.o.cmake
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/.
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o.cubin.txt -P /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_kernel_IMT.cu.o.cmake
 
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o: ../include/kernel_MT.cu
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o: ../include/kernel_MT.h
@@ -688,10 +688,10 @@ CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o: /usr/loca
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o: /usr/local/cuda/include/vector_types.h
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o: CMakeFiles/simulator.dir/include/simulator_generated_kernel_MT.cu.o.cmake
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o: ../include/kernel_MT.cu
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building NVCC (Device) object CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o"
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/.
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o.cubin.txt -P /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_kernel_MT.cu.o.cmake
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/.
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o.cubin.txt -P /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_kernel_MT.cu.o.cmake
 
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o: ../include/kernel_common.cu
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o: ../include/kernel_common.h
@@ -817,10 +817,10 @@ CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o: /usr/
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o: /usr/local/cuda/include/vector_types.h
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o: CMakeFiles/simulator.dir/include/simulator_generated_kernel_common.cu.o.cmake
 CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o: ../include/kernel_common.cu
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building NVCC (Device) object CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o"
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/.
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o.cubin.txt -P /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_kernel_common.cu.o.cmake
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/.
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o.cubin.txt -P /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_kernel_common.cu.o.cmake
 
 CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o: ../include/FireSim.h
 CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o: ../include/FuelModel.h
@@ -1071,10 +1071,10 @@ CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o: /usr/local/cuda
 CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o: /usr/local/cuda/include/vector_types.h
 CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o: CMakeFiles/simulator.dir/include/simulator_generated_IMT.cu.o.cmake
 CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o: ../include/IMT.cu
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building NVCC (Device) object CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o"
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/.
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o.cubin.txt -P /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_IMT.cu.o.cmake
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/.
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o.cubin.txt -P /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_IMT.cu.o.cmake
 
 CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o: ../include/BD.cu
 CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o: ../include/BD.h
@@ -1325,10 +1325,10 @@ CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o: /usr/local/cuda/
 CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o: /usr/local/cuda/include/vector_types.h
 CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o: CMakeFiles/simulator.dir/include/simulator_generated_BD.cu.o.cmake
 CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o: ../include/BD.cu
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building NVCC (Device) object CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o"
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/.
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o.cubin.txt -P /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_BD.cu.o.cmake
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/.
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o.cubin.txt -P /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_BD.cu.o.cmake
 
 CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o: ../include/FireSim.h
 CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o: ../include/FuelModel.h
@@ -1579,10 +1579,10 @@ CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o: /usr/local/cuda/
 CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o: /usr/local/cuda/include/vector_types.h
 CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o: CMakeFiles/simulator.dir/include/simulator_generated_MT.cu.o.cmake
 CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o: ../include/MT.cu
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_8)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building NVCC (Device) object CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o"
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/.
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o.cubin.txt -P /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_MT.cu.o.cmake
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/.
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o.cubin.txt -P /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_MT.cu.o.cmake
 
 CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o: ../include/FireSim.h
 CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o: ../include/FuelModel.h
@@ -1830,24 +1830,24 @@ CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o: /usr/lo
 CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o: /usr/local/cuda/include/vector_types.h
 CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o: CMakeFiles/simulator.dir/include/simulator_generated_propagation.cu.o.cmake
 CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o: ../include/propagation.cu
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building NVCC (Device) object CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o"
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/.
-	cd /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o.cubin.txt -P /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/simulator_generated_propagation.cu.o.cmake
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -E make_directory /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/.
+	cd /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o -D generated_cubin_file:STRING=/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o.cubin.txt -P /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/simulator_generated_propagation.cu.o.cmake
 
 CMakeFiles/simulator.dir/include/FireSim.cpp.o: CMakeFiles/simulator.dir/flags.make
 CMakeFiles/simulator.dir/include/FireSim.cpp.o: ../include/FireSim.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_10)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/simulator.dir/include/FireSim.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/include/FireSim.cpp.o -c /cse/home/andyg/Desktop/simulator/include/FireSim.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/include/FireSim.cpp.o -c /cse/home/andyg/Desktop/firesim/include/FireSim.cpp
 
 CMakeFiles/simulator.dir/include/FireSim.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simulator.dir/include/FireSim.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /cse/home/andyg/Desktop/simulator/include/FireSim.cpp > CMakeFiles/simulator.dir/include/FireSim.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /cse/home/andyg/Desktop/firesim/include/FireSim.cpp > CMakeFiles/simulator.dir/include/FireSim.cpp.i
 
 CMakeFiles/simulator.dir/include/FireSim.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simulator.dir/include/FireSim.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /cse/home/andyg/Desktop/simulator/include/FireSim.cpp -o CMakeFiles/simulator.dir/include/FireSim.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /cse/home/andyg/Desktop/firesim/include/FireSim.cpp -o CMakeFiles/simulator.dir/include/FireSim.cpp.s
 
 CMakeFiles/simulator.dir/include/FireSim.cpp.o.requires:
 .PHONY : CMakeFiles/simulator.dir/include/FireSim.cpp.o.requires
@@ -1860,17 +1860,17 @@ CMakeFiles/simulator.dir/include/FireSim.cpp.o.provides.build: CMakeFiles/simula
 
 CMakeFiles/simulator.dir/include/SEQ.cpp.o: CMakeFiles/simulator.dir/flags.make
 CMakeFiles/simulator.dir/include/SEQ.cpp.o: ../include/SEQ.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/simulator/build/CMakeFiles $(CMAKE_PROGRESS_11)
+	$(CMAKE_COMMAND) -E cmake_progress_report /cse/home/andyg/Desktop/firesim/build/CMakeFiles $(CMAKE_PROGRESS_11)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/simulator.dir/include/SEQ.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/include/SEQ.cpp.o -c /cse/home/andyg/Desktop/simulator/include/SEQ.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/simulator.dir/include/SEQ.cpp.o -c /cse/home/andyg/Desktop/firesim/include/SEQ.cpp
 
 CMakeFiles/simulator.dir/include/SEQ.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simulator.dir/include/SEQ.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /cse/home/andyg/Desktop/simulator/include/SEQ.cpp > CMakeFiles/simulator.dir/include/SEQ.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /cse/home/andyg/Desktop/firesim/include/SEQ.cpp > CMakeFiles/simulator.dir/include/SEQ.cpp.i
 
 CMakeFiles/simulator.dir/include/SEQ.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simulator.dir/include/SEQ.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /cse/home/andyg/Desktop/simulator/include/SEQ.cpp -o CMakeFiles/simulator.dir/include/SEQ.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /cse/home/andyg/Desktop/firesim/include/SEQ.cpp -o CMakeFiles/simulator.dir/include/SEQ.cpp.s
 
 CMakeFiles/simulator.dir/include/SEQ.cpp.o.requires:
 .PHONY : CMakeFiles/simulator.dir/include/SEQ.cpp.o.requires
@@ -1888,15 +1888,15 @@ simulator_OBJECTS = \
 
 # External object files for target simulator
 simulator_EXTERNAL_OBJECTS = \
-"/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o" \
-"/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o" \
-"/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o" \
-"/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o" \
-"/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o" \
-"/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o" \
-"/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o" \
-"/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o" \
-"/cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o"
+"/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/src/./simulator_generated_simulation.cu.o" \
+"/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_BD.cu.o" \
+"/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_IMT.cu.o" \
+"/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_MT.cu.o" \
+"/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_kernel_common.cu.o" \
+"/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_IMT.cu.o" \
+"/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o" \
+"/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o" \
+"/cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o"
 
 simulator: CMakeFiles/simulator.dir/include/FireSim.cpp.o
 simulator: CMakeFiles/simulator.dir/include/SEQ.cpp.o
@@ -1938,6 +1938,6 @@ CMakeFiles/simulator.dir/depend: CMakeFiles/simulator.dir/include/./simulator_ge
 CMakeFiles/simulator.dir/depend: CMakeFiles/simulator.dir/include/./simulator_generated_BD.cu.o
 CMakeFiles/simulator.dir/depend: CMakeFiles/simulator.dir/include/./simulator_generated_MT.cu.o
 CMakeFiles/simulator.dir/depend: CMakeFiles/simulator.dir/include/./simulator_generated_propagation.cu.o
-	cd /cse/home/andyg/Desktop/simulator/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cse/home/andyg/Desktop/simulator /cse/home/andyg/Desktop/simulator /cse/home/andyg/Desktop/simulator/build /cse/home/andyg/Desktop/simulator/build /cse/home/andyg/Desktop/simulator/build/CMakeFiles/simulator.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cse/home/andyg/Desktop/firesim/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cse/home/andyg/Desktop/firesim /cse/home/andyg/Desktop/firesim /cse/home/andyg/Desktop/firesim/build /cse/home/andyg/Desktop/firesim/build /cse/home/andyg/Desktop/firesim/build/CMakeFiles/simulator.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/simulator.dir/depend
 
