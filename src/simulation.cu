@@ -14,7 +14,7 @@
 #include <sys/time.h>
 
 /*
-./simulator /cse/home/nolan/Documents/FireWork/firesim/data/fixed.fuel /cse/home/nolan/Documents/FireWork/firesim/data/fire_info.csv /cse/home/nolan/Documents/FireWork/firesim/out/final_tests.csv
+./simulator data/fixed.fuel data/fire_info.csv out/final_tests.csv /cse/home/nolan/Documents/FireWork/firesim/
 */
 
 bool TIMING_LOOPS = 1;
@@ -43,6 +43,7 @@ int main(int argc, char *argv[]){
    int s = 512;
    std::ofstream fout;
    std::string filename;
+   std::string base_directory = argv[4];
    filename += "/cse/home/nolan/Documents/FireWork/firesim/out/timeout.txt";
    fout.open(filename.c_str());
    for(int i = 0; i < TIMING_LOOPS; i ++)
@@ -51,16 +52,16 @@ int main(int argc, char *argv[]){
       {
          printf("---------- Running Parallel Simulation ----------\n");
          BD parallel_sim(906,642,
-                         "/cse/home/nolan/Documents/FireWork/firesim/data/default.fmd", // /cse/home/nolan/Documents/FireWork/ + argv[4] this does not work
+                         base_directory + "data/default.fmd", // /cse/home/nolan/Documents/FireWork/ + argv[4] this does not work
                                                                                // need to get path for files
-                         "/cse/home/nolan/Documents/FireWork/firesim/data/kyle.fms");
-         parallel_sim.Init(argv[1], //--> argv[1] --> "/cse/home/nolan/Documents/FireWork/firesim/data/fixed.fuel"
-                           "/cse/home/nolan/Documents/FireWork/firesim/data/fixed2.tif",
-                           "/cse/home/nolan/Documents/FireWork/firesim/data/canopy_ht.asc",
-                           "/cse/home/nolan/Documents/FireWork/firesim/data/crown_base_ht.asc",
-                           "/cse/home/nolan/Documents/FireWork/firesim/data/crown_bulk_density.asc",
-                           "/cse/home/nolan/Documents/FireWork/firesim/data/windx.fuel", 
-                           "/cse/home/nolan/Documents/FireWork/firesim/data/windy.fuel");
+                         base_directory + "data/kyle.fms");
+         parallel_sim.Init(base_directory + argv[1], //--> argv[1] --> "data/fixed.fuel"
+                           base_directory + "data/fixed2.tif",
+                           base_directory + "data/canopy_ht.asc",
+                           base_directory + "data/crown_base_ht.asc",
+                           base_directory + "data/crown_bulk_density.asc",
+                           base_directory + "data/windx.fuel", 
+                           base_directory + "data/windy.fuel");
 
          // check for rui file
          //newData = "/cse/home/nolan/Documents/FireWork/firesim/data/" + argv[1];
@@ -71,8 +72,8 @@ int main(int argc, char *argv[]){
          // if there is a file parse it
 
          // Loop through and start fires
-        std::ifstream finn(argv[2]); // "/cse/home/nolan/Documents/FireWork/firesim/data/fire_info.csv"
-        std::ofstream foutt("/cse/home/nolan/Documents/FireWork/firesim/data/temp.txt");
+        std::ifstream finn(base_directory + argv[2]); // "data/fire_info.csv"
+        std::ofstream foutt(base_directory + "data/temp.txt");
 
         if(!finn)
         {
@@ -185,9 +186,9 @@ int main(int argc, char *argv[]){
          std::cout << "Processing Simulation took " << t_upSpread << " seconds" << std::endl;
 //       std::cout << "Iterations: " << count << std::endl;
 
-         parallel_sim.WriteToFile(argv[3], metaData); // "/cse/home/nolan/Documents/FireWork/firesim/out/final_tests.csv"
-         parallel_sim.WindXToFile("/cse/home/nolan/Documents/FireWork/firesim/out/windX.fuel", metaData);
-         parallel_sim.WindYToFile("/cse/home/nolan/Documents/FireWork/firesim/out/windY.fuel", metaData);
+         parallel_sim.WriteToFile(base_directory + argv[3], metaData); // "/cse/home/nolan/Documents/FireWork/firesim/out/final_tests.csv"
+         parallel_sim.WindXToFile(base_directory + "out/windX.fuel", metaData);
+         parallel_sim.WindYToFile(base_directory + "out/windY.fuel", metaData);
          
          delete[] metaData;
       }
