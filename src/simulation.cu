@@ -14,7 +14,7 @@
 #include <sys/time.h>
 
 /*
-./simulator /cse/home/andyg/Desktop/firesim/data/fixed.fuel /cse/home/andyg/Desktop/firesim/data/fire_info.csv /cse/home/andyg/Desktop/firesim/out/final_tests.csv
+./simulator /cse/home/nolan/Documents/FireWork/firesim/data/fixed.fuel /cse/home/nolan/Documents/FireWork/firesim/data/fire_info.csv /cse/home/nolan/Documents/FireWork/firesim/out/final_tests.csv
 */
 
 bool TIMING_LOOPS = 1;
@@ -43,7 +43,7 @@ int main(int argc, char *argv[]){
    int s = 512;
    std::ofstream fout;
    std::string filename;
-   filename += "/cse/home/andyg/Desktop/firesim/out/timeout.txt";
+   filename += "/cse/home/nolan/Documents/FireWork/firesim/out/timeout.txt";
    fout.open(filename.c_str());
    for(int i = 0; i < TIMING_LOOPS; i ++)
    {
@@ -51,28 +51,28 @@ int main(int argc, char *argv[]){
       {
          printf("---------- Running Parallel Simulation ----------\n");
          BD parallel_sim(906,642,
-                         "/cse/home/andyg/Desktop/firesim/data/default.fmd", // /cse/home/andyg/Desktop/ + argv[4] this does not work
+                         "/cse/home/nolan/Documents/FireWork/firesim/data/default.fmd", // /cse/home/nolan/Documents/FireWork/ + argv[4] this does not work
                                                                                // need to get path for files
-                         "/cse/home/andyg/Desktop/firesim/data/kyle.fms");
-         parallel_sim.Init(argv[1], //--> argv[1] --> "/cse/home/andyg/Desktop/firesim/data/fixed.fuel"
-                           "/cse/home/andyg/Desktop/firesim/data/fixed2.tif",
-                           "/cse/home/andyg/Desktop/firesim/data/canopy_ht.asc",
-                           "/cse/home/andyg/Desktop/firesim/data/crown_base_ht.asc",
-                           "/cse/home/andyg/Desktop/firesim/data/crown_bulk_density.asc",
-                           "/cse/home/andyg/Desktop/firesim/data/windx.fuel", 
-                           "/cse/home/andyg/Desktop/firesim/data/windy.fuel");
+                         "/cse/home/nolan/Documents/FireWork/firesim/data/kyle.fms");
+         parallel_sim.Init(argv[1], //--> argv[1] --> "/cse/home/nolan/Documents/FireWork/firesim/data/fixed.fuel"
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/fixed2.tif",
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/canopy_ht.asc",
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/crown_base_ht.asc",
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/crown_bulk_density.asc",
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/windx.fuel", 
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/windy.fuel");
 
          // check for rui file
-         //newData = "/cse/home/andyg/Desktop/firesim/data/" + argv[1];
+         //newData = "/cse/home/nolan/Documents/FireWork/firesim/data/" + argv[1];
          // path = argv[2]; // file path 'pwd'
          // newData = argv[2] + "/simulator/data/" + argv[3]; // argv[2] is file name .asc, .csv ...
-         // newData = "/cse/home/andyg/Desktop/" + "simulator/data/" + fire_info.csv
+         // newData = "/cse/home/nolan/Documents/FireWork/" + "simulator/data/" + fire_info.csv
 
          // if there is a file parse it
 
          // Loop through and start fires
-        std::ifstream finn(argv[2]); // "/cse/home/andyg/Desktop/firesim/data/fire_info.csv"
-        std::ofstream foutt("/cse/home/andyg/Desktop/firesim/data/temp.txt");
+        std::ifstream finn(argv[2]); // "/cse/home/nolan/Documents/FireWork/firesim/data/fire_info.csv"
+        std::ofstream foutt("/cse/home/nolan/Documents/FireWork/firesim/data/temp.txt");
 
         if(!finn)
         {
@@ -185,9 +185,9 @@ int main(int argc, char *argv[]){
          std::cout << "Processing Simulation took " << t_upSpread << " seconds" << std::endl;
 //       std::cout << "Iterations: " << count << std::endl;
 
-         parallel_sim.WriteToFile(argv[3], metaData); // "/cse/home/andyg/Desktop/firesim/out/final_tests.csv"
-         parallel_sim.WindXToFile("/cse/home/andyg/Desktop/firesim/out/windX.fuel", metaData);
-         parallel_sim.WindYToFile("/cse/home/andyg/Desktop/firesim/out/windY.fuel", metaData);
+         parallel_sim.WriteToFile(argv[3], metaData); // "/cse/home/nolan/Documents/FireWork/firesim/out/final_tests.csv"
+         parallel_sim.WindXToFile("/cse/home/nolan/Documents/FireWork/firesim/out/windX.fuel", metaData);
+         parallel_sim.WindYToFile("/cse/home/nolan/Documents/FireWork/firesim/out/windY.fuel", metaData);
          
          delete[] metaData;
       }
@@ -229,24 +229,24 @@ int main(int argc, char *argv[]){
    std::ofstream fout;
    std::ifstream fin;
    std::string filename, newData;
-   filename += "/cse/home/andyg/Desktop/simulator/out/timeout.txt";
+   filename += "/cse/home/nolan/Documents/FireWork/simulator/out/timeout.txt";
    fout.open(filename.c_str());
 
    while(RUN_SIM == 1)
    {
       printf("---------- Running Parallel Simulation ----------\n");
       BD parallel_sim(906,642,
-                      "/cse/home/andyg/Desktop/firesim/data/default.fmd",
-                      "/cse/home/andyg/Desktop/firesim/data/kyle.fms");
-      parallel_sim.Init("/cse/home/andyg/Desktop/firesim/data/fixed.fuel",
-                        "/cse/home/andyg/Desktop/firesim/data/fixed2.tif",
-                        "/cse/home/andyg/Desktop/firesim/data/canopy_ht.asc",
-                        "/cse/home/andyg/Desktop/firesim/data/crown_base_ht.asc",
-                        "/cse/home/andyg/Desktop/firesim/data/crown_bulk_density.asc",
+                      "/cse/home/nolan/Documents/FireWork/firesim/data/default.fmd",
+                      "/cse/home/nolan/Documents/FireWork/firesim/data/kyle.fms");
+      parallel_sim.Init("/cse/home/nolan/Documents/FireWork/firesim/data/fixed.fuel",
+                        "/cse/home/nolan/Documents/FireWork/firesim/data/fixed2.tif",
+                        "/cse/home/nolan/Documents/FireWork/firesim/data/canopy_ht.asc",
+                        "/cse/home/nolan/Documents/FireWork/firesim/data/crown_base_ht.asc",
+                        "/cse/home/nolan/Documents/FireWork/firesim/data/crown_bulk_density.asc",
                         0, 0);
 
       // check for rui file
-      newData = "/cse/home/andyg/Desktop/firesim/data/" + newData;
+      newData = "/cse/home/nolan/Documents/FireWork/firesim/data/" + newData;
 
       // if there is a file parse it
 
@@ -271,7 +271,7 @@ int main(int argc, char *argv[]){
       t_upSpread /= 1000000.0;
       std::cout << "Processing Simulation took " << t_upSpread << " seconds" << std::endl;
 
-      parallel_sim.WriteToFile("/cse/home/andyg/Desktop/simulator/out/final_tests.csv"); // add meta data for rui
+      parallel_sim.WriteToFile("/cse/home/nolan/Documents/FireWork/simulator/out/final_tests.csv"); // add meta data for rui
 
       std::cout << std::endl << "Simulation Complete, would you like to restart with new data? (y/n)" << std::endl;
       cin >> yesno;
@@ -301,7 +301,7 @@ int main(int argc, char *argv[]){
    int s = 512;
    std::ofstream fout;
    std::string filename;
-   filename += "/cse/home/andyg/Desktop/simulator/out/timeout.txt";
+   filename += "/cse/home/nolan/Documents/FireWork/simulator/out/timeout.txt";
    fout.open(filename.c_str());
    for(int i = 0; i < TIMING_LOOPS; i ++)
    {
@@ -309,13 +309,13 @@ int main(int argc, char *argv[]){
       {
          printf("---------- Running Parallel Simulation ----------\n");
          BD parallel_sim(906,642,
-                         "/cse/home/andyg/Desktop/firesim/data/default.fmd",
-                         "/cse/home/andyg/Desktop/firesim/data/kyle.fms");
-         parallel_sim.Init("/cse/home/andyg/Desktop/firesim/data/fixed.fuel",
-                           "/cse/home/andyg/Desktop/firesim/data/fixed2.tif",
-                           "/cse/home/andyg/Desktop/firesim/data/canopy_ht.asc",
-                           "/cse/home/andyg/Desktop/firesim/data/crown_base_ht.asc",
-                           "/cse/home/andyg/Desktop/firesim/data/crown_bulk_density.asc",
+                         "/cse/home/nolan/Documents/FireWork/firesim/data/default.fmd",
+                         "/cse/home/nolan/Documents/FireWork/firesim/data/kyle.fms");
+         parallel_sim.Init("/cse/home/nolan/Documents/FireWork/firesim/data/fixed.fuel",
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/fixed2.tif",
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/canopy_ht.asc",
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/crown_base_ht.asc",
+                           "/cse/home/nolan/Documents/FireWork/firesim/data/crown_bulk_density.asc",
                            0, 0);
 
          // check for rui file
@@ -345,7 +345,7 @@ int main(int argc, char *argv[]){
          std::cout << "Processing Simulation took " << t_upSpread << " seconds" << std::endl;
 //       std::cout << "Iterations: " << count << std::endl;
 
-         parallel_sim.WriteToFile("/cse/home/andyg/Desktop/simulator/out/final_tests.csv"); // add meta data for rui
+         parallel_sim.WriteToFile("/cse/home/nolan/Documents/FireWork/simulator/out/final_tests.csv"); // add meta data for rui
       }
       else
       {
