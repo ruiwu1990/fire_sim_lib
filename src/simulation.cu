@@ -14,7 +14,7 @@
 #include <sys/time.h>
 
 /*
-./simulator data/fixed.fuel data/fire_info.csv out/final_tests.csv /cse/home/nolan/Documents/FireWork/firesim/
+./simulator data/fixed.fuel data/fire_info.csv out/final_tests.csv $HOME/Documents/FireWork/firesim/
 */
 
 bool TIMING_LOOPS = 1;
