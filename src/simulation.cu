@@ -14,7 +14,7 @@
 #include <sys/time.h>
 
 /*
-./simulator data/fixed.fuel data/fire_info.csv out/final_tests.csv $HOME/Documents/FireWork/firesim/
+./simulator data/fixed.fuel data/fire_info.csv out/final_tests.csv data/windx.fuel data/windy.fuel $HOME/Desktop/fire_folder_2D_wind/firesim/
 */
 
 bool TIMING_LOOPS = 1;
@@ -42,9 +42,9 @@ int main(int argc, char *argv[]){
    double t_upSpread;
    int s = 512;
    std::ofstream fout;
-   std::string filename = argv[4];
+   std::string filename = argv[6];
    filename += "out/timeout.txt";
-   std::string base_directory = argv[4];
+   std::string base_directory = argv[6];
    fout.open(filename.c_str());
    for(int i = 0; i < TIMING_LOOPS; i ++)
    {
@@ -52,16 +52,16 @@ int main(int argc, char *argv[]){
       {
          printf("---------- Running Parallel Simulation ----------\n");
          BD parallel_sim(906,642,
-                         base_directory + "data/default.fmd", // /cse/home/nolan/Documents/FireWork/ + argv[4] this does not work
+                         base_directory + "default.fmd", // /cse/home/nolan/Documents/FireWork/ + argv[4] this does not work
                                                                                // need to get path for files
-                         base_directory + "data/kyle.fms");
+                         base_directory + "kyle.fms");
          parallel_sim.Init(base_directory + argv[1], //--> argv[1] --> "data/fixed.fuel"
-                           base_directory + "data/fixed2.tif",
-                           base_directory + "data/canopy_ht.asc",
-                           base_directory + "data/crown_base_ht.asc",
-                           base_directory + "data/crown_bulk_density.asc",
-                           base_directory + "data/windx.fuel", 
-                           base_directory + "data/windy.fuel");
+                           base_directory + "fixed2.tif",
+                           base_directory + "canopy_ht.asc",
+                           base_directory + "crown_base_ht.asc",
+                           base_directory + "crown_bulk_density.asc",
+                           base_directory + argv[4], 
+                           base_directory + argv[5]);
 
          // check for rui file
          //newData = "/cse/home/nolan/Documents/FireWork/firesim/data/" + argv[1];
@@ -73,7 +73,7 @@ int main(int argc, char *argv[]){
 
          // Loop through and start fires
         std::ifstream finn(base_directory + argv[2]); // "data/fire_info.csv"
-        std::ofstream foutt(base_directory + "data/temp.txt");
+        std::ofstream foutt(base_directory + "temp.txt");
 
         if(!finn)
         {
