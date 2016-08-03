@@ -42,9 +42,8 @@ int main(int argc, char *argv[]){
    double t_upSpread;
    int s = 512;
    std::ofstream fout;
-   std::string filename;
+   std::string filename = argv[4] + out/timeout.txt;
    std::string base_directory = argv[4];
-   filename += "/cse/home/nolan/Documents/FireWork/firesim/out/timeout.txt";
    fout.open(filename.c_str());
    for(int i = 0; i < TIMING_LOOPS; i ++)
    {
