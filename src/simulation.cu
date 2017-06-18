@@ -14,7 +14,7 @@
 #include <sys/time.h>
 
 /*
-./simulator data/fixed.fuel data/fire_info.csv out/final_tests.csv data/windx.fuel data/windy.fuel $HOME/Desktop/fire_folder_2D_wind/firesim/
+./simulator data/fixed.fuel data/fire_info.csv out/final_tests.csv data/windx.fuel data/windy.fuel $HOME/Desktop/fire_sim/firesim/
 */
 
 bool TIMING_LOOPS = 1;

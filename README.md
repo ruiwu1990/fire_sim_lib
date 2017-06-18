@@ -1,2 +1,6 @@
 # simulator
-Implementation of my thesis forest fire simulator
+mkdir build
+cd build
+cmake ..
+make
+
